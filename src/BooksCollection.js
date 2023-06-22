@@ -2,11 +2,20 @@ import React from "react";
 import BookCard from "./BookCard";
 
 const BooksCollection = ({ books }) => {
+
+    const booksToList = books.map(book => (
+        <BookCard 
+            key={book.id}
+            book={book}
+            title={book.title}
+            author={book.author}
+            publisher={book.publisher}
+            image={book.image}
+        />
+    ))
         
     return (
-        <div>
-            <h1>Hi</h1>
-        </div>
+        <ul className="cards">{booksToList}</ul>
     )
 
 };

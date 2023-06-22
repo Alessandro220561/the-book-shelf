@@ -14,7 +14,7 @@ const BookLandingPage = () => {
 
     return (
         <div>
-            <BooksCollection />
+            <BooksCollection books={ books }/>
             <BookForm />
             <BookSearch />
         </div>
