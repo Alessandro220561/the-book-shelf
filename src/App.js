@@ -3,6 +3,7 @@ import BookLandingPage from "./BookLandingPage";
 import NavBar from "./NavBar";
 import BookForm from "./BookForm";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import BookSearch from "./BookSearch";
 
 function App() {
 
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <BookLandingPage />
+        </Route>
+        <Route exact path="/Search">
+          <BookSearch />
         </Route>
       </Switch>
     </div>

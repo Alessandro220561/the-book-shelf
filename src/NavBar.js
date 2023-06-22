@@ -34,6 +34,16 @@ const NavBar = () => {
             >
                 Sell Your Book
             </NavLink>
+            <NavLink
+                to="/Search"
+                exact
+                style={linkStyles}
+                activeStyle={{
+                    background: "red"
+                }}
+            >
+                Search For Books
+            </NavLink>
         </div>
     )
 };
