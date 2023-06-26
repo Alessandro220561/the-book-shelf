@@ -5,6 +5,7 @@ import BookSearch from "./BookSearch";
 
 const BookLandingPage = () => {
     const [books, setBooks] = useState([]);
+    const [titleSearch, setTitleSearch] = useState('');
 
     useEffect(() => {
         fetch('http://localhost:3000/books')
@@ -15,9 +16,9 @@ const BookLandingPage = () => {
 
     return (
         <div>
-            <BooksCollection books={ books }/>
+            <BooksCollection books={ books } titleSearch={ titleSearch }/>
             <BookForm books={ books } setBooks={ setBooks }/>
-            <BookSearch />
+            <BookSearch titleSearch={ titleSearch } setTitleSearch={ setTitleSearch }/>
         </div>
     )
 };

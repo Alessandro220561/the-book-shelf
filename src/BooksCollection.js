@@ -1,9 +1,14 @@
 import React from "react";
 import BookCard from "./BookCard";
 
-const BooksCollection = ({ books }) => {
+const BooksCollection = ({ books, titleSearch }) => {
 
-    const booksToList = books.map(book => (
+    const booksToList = books
+    .filter(book => {
+        if(titleSearch === '') return true
+        return book.title.toLowerCase().includes(titleSearch.toLowerCase())
+    })
+    .map(book => (
         <BookCard 
             key={book.id}
             book={book}
