@@ -1,50 +1,57 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import "./styles/NavStyle.css";
 
-const linkStyles = {
-    display: "inline-block",
-    width: "50px",
-    padding: "12px",
-    margin: "0 6px 6px",
-    background: "brown",
-    textDecoration: "none",
-    color: "white",
-}
+//  const linkStyles = {
+//     display: "inline",
+//     padding: "8px",
+//     background: "#dddddd"
+//  }
+
+//  const activeLinkStyles = {
+//      background: "#555",
+//      color: "white"
+//  }
+
+    // const linkStyles = {
+    //     listStyleType: "none",
+    //     display: "inline",
+    //     margin: "0",
+    //     padding: "0",
+    //     overflow: "hidden",
+    //     backgroundColor: "yellow",
+        
+    // }
+
+    // const activeLinkStyles = {
+    //     backgroundColor: "#04AA6D"
+    // }
 
 const NavBar = () => {
     return (
-        <div className="navbar"> 
+        <nav> 
             <NavLink 
                 to="/"
                 exact
-                style={linkStyles}
-                activeStyle={{
-                    background: "red"
-                    }}
+                activeClassName="active"
             >
                 Book Store
             </NavLink>
             <NavLink
                 to="/Sell"
                 exact
-                style={linkStyles}
-                activeStyle={{
-                    background: "red"
-                }}
+                activeClassName="active"
             >
                 Sell Your Book
             </NavLink>
             <NavLink
                 to="/Search"
                 exact
-                style={linkStyles}
-                activeStyle={{
-                    background: "red"
-                }}
+                activeClassName="active"
             >
                 Search For Books
             </NavLink>
-        </div>
+        </nav>
     )
 };
 

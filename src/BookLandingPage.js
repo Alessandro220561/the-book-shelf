@@ -12,10 +12,11 @@ const BookLandingPage = () => {
                 .then(bookData => setBooks(bookData))
     }, [])
 
+
     return (
         <div>
             <BooksCollection books={ books }/>
-            <BookForm />
+            <BookForm books={ books } setBooks={ setBooks }/>
             <BookSearch />
         </div>
     )

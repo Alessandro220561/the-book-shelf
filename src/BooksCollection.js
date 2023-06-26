@@ -10,12 +10,13 @@ const BooksCollection = ({ books }) => {
             title={book.title}
             author={book.author}
             publisher={book.publisher}
+            price={book.price}
             image={book.image}
         />
     ))
         
     return (
-        <ul className="cards">{booksToList}</ul>
+        <ul className="books-list">{booksToList}</ul>
     )
 
 };
