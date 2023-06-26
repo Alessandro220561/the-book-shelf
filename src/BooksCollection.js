@@ -3,8 +3,7 @@ import BookCard from "./BookCard";
 
 const BooksCollection = ({ books, titleSearch }) => {
 
-    const booksToList = books
-    .filter(book => {
+    const booksToList = books.filter(book => {
         if(titleSearch === '') return true
         return book.title.toLowerCase().includes(titleSearch.toLowerCase())
     })
