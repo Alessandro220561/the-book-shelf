@@ -41,9 +41,3 @@ const BookForm = ({ books, setBooks }) => {
 
 export default BookForm;
 
-// <form>
-// <label>Sell Your Book:
-// <input type="text" />
-// </label>
-// </form>
-// )
