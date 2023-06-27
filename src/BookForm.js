@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 
 const BookForm = ({ books, setBooks }) => {
+
     const [newBook, setNewBook] = useState({
         title: "",
         author: "",
@@ -8,6 +11,10 @@ const BookForm = ({ books, setBooks }) => {
         price: 0,
         image: ""
     })
+
+    const history = useHistory();
+
+   
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +27,10 @@ const BookForm = ({ books, setBooks }) => {
                 body: JSON.stringify(newBook)
             })
                 .then(response => response.json())
-                    .then(newBookData => setBooks(...books, newBookData))
+                    .then(newBookData => {
+                        setBooks([...books, newBookData])
+                        history.push("/")
+                    })
            
     };
 

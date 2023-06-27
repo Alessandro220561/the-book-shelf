@@ -30,26 +30,32 @@ import "./styles/NavStyle.css";
 const NavBar = () => {
     return (
         <nav> 
+            <NavLink
+                to='/'
+                exact
+            >
+                Home
+            </NavLink>
             <NavLink 
-                to="/"
+                to="/store"
                 exact
                 activeClassName="active"
             >
                 Book Store
             </NavLink>
             <NavLink
-                to="/Sell"
+                to="/sell"
                 exact
                 activeClassName="active"
             >
                 Sell Your Book
             </NavLink>
             <NavLink
-                to="/Search"
+                to="/favorite"
                 exact
                 activeClassName="active"
             >
-                Search For Books
+                Favorite Books
             </NavLink>
         </nav>
     )

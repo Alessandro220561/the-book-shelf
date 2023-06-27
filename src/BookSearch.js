@@ -9,7 +9,7 @@ const BookSearch = ({ titleSearch, setTitleSearch }) => {
             <input
             type="text"
             id="search"
-            placehoder="Type a book title to search..."
+            placeholder="Type a book title to search..."
             value={ titleSearch }
             onChange={(e) => setTitleSearch(e.target.value)}
             />

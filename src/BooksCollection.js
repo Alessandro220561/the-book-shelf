@@ -1,7 +1,7 @@
 import React from "react";
 import BookCard from "./BookCard";
 
-const BooksCollection = ({ books, titleSearch }) => {
+const BooksCollection = ({ books, titleSearch, addToFavorites }) => {
 
     const booksToList = books.filter(book => {
         if(titleSearch === '') return true
@@ -16,6 +16,7 @@ const BooksCollection = ({ books, titleSearch }) => {
             publisher={book.publisher}
             price={book.price}
             image={book.image}
+            addToFavorites={ addToFavorites }
         />
     ))
         
