@@ -4,7 +4,7 @@ const BookSearch = ({ titleSearch, setTitleSearch }) => {
 
 
     return (
-        <div>
+        <div className="searchbar">
             <label htmlFor="search">Search By Title:</label>
             <input
             type="text"

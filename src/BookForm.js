@@ -14,8 +14,6 @@ const BookForm = ({ books, setBooks }) => {
 
     const history = useHistory();
 
-   
-    
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -29,13 +27,13 @@ const BookForm = ({ books, setBooks }) => {
                 .then(response => response.json())
                     .then(newBookData => {
                         setBooks([...books, newBookData])
-                        history.push("/")
+                        history.push("/store")
                     })
            
     };
 
     return (
-        <div>
+        <div className="book-form-container">
             <h1>Sell Your Own Books</h1>
             <form onSubmit={ handleSubmit }>
                 <input type="text" placeholder="title" value={newBook.title} onChange={(e) => setNewBook({...newBook, title: e.target.value})}/>

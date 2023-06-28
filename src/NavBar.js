@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-import "./styles/NavStyle.css";
 
 //  const linkStyles = {
 //     display: "inline",
@@ -29,7 +28,7 @@ import "./styles/NavStyle.css";
 
 const NavBar = () => {
     return (
-        <nav> 
+        <nav className="navbar"> 
             <NavLink
                 to='/'
                 exact

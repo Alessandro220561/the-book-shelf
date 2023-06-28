@@ -3,9 +3,10 @@ import NavBar from "./NavBar";
 import BookForm from "./BookForm";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import BookSearch from "./BookSearch";
-import FavoriteBooks from "./FavoriteBooks";
 import Home from "./Home";
 import BooksCollection from "./BooksCollection";
+import "./index.css";
+import FavoriteBooks from "./FavoriteBooks";
 
 
 function App() {
@@ -13,15 +14,18 @@ function App() {
   const [titleSearch, setTitleSearch] = useState('');
   const [favoriteBooks, setFavoriteBooks] = useState([]);
 
-    useEffect(() => {
-      fetch('http://localhost:3000/books')
-          .then(response => response.json())
-              .then(bookData => setBooks(bookData))
-  }, [])
-
+  
+  
+  useEffect(() => {
+    fetch('http://localhost:3000/books')
+    .then(response => response.json())
+    .then(bookData => setBooks(bookData))
+  }, []);
+  
   const addToFavorites = (book) => {
-    setFavoriteBooks((prevFavoriteBooks) => [...prevFavoriteBooks, book]);
-  };
+      const updatedBook = {...book, favorite: true};
+      setFavoriteBooks([...favoriteBooks, updatedBook])
+  }
 
   return (
     <div>
@@ -34,8 +38,8 @@ function App() {
     <Route path="/sell">
       <BookForm books={ books } setBooks={ setBooks } />
     </Route>
-    <Route path="/favorites">
-      <FavoriteBooks favoriteBooks={ favoriteBooks } />
+    <Route path='/favorite'>
+      <FavoriteBooks favoriteBooks={ favoriteBooks }/>
     </Route>
     <Route exact path="/">
       <Home />
