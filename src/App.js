@@ -20,21 +20,26 @@ function App() {
     .then(response => response.json())
     .then(bookData => setBooks(bookData))
   }, []);
+
+  //console.log(books)
   
   const addToFavorites = (book) => {
+    //console.log(book)
       const updatedBook = {...book, favorite: true};
 
       fetch(`http://localhost:3000/books/${book.id}`, {
         method: 'PATCH',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(updatedBook)
       })
-        .then(response => response.json())
-        .then(addFavoriteBook => setFavoriteBooks([...favoriteBooks, addFavoriteBook]))   
+      .then(response => response.json())
+      .then(updatedBookData => setFavoriteBooks([...favoriteBooks, updatedBookData]))
+  } 
 
-  }
+  
+  
 
   return (
     <div>
@@ -69,4 +74,10 @@ function App() {
 
 export default App;
 
-
+// if (updatedBookData.favorite) {
+//   setFavoriteBooks([...favoriteBooks, updatedBookData]);
+// } else {
+//   const updatedFavoriteBooks = favoriteBooks.filter(b => b.id !== updatedBookData.id);
+//   setFavoriteBooks(updatedFavoriteBooks);
+// }
+// });
