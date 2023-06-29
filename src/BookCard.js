@@ -18,7 +18,7 @@ const BookCard = ({ book, addToFavorites }) => {
         <h3>{book.title}</h3>
         <h4>Author: {book.author}</h4>
                 <p>Publisher: {book.publisher}</p>
-                <p>Price: ${book.price}</p>
+                {/* <p>Price: ${book.price}</p> */}
                 {isFavorite ?
                 (<button onClick={handleOnClick}>🌟</button>)   
                 :
