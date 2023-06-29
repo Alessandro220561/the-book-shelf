@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import NavBar from "./NavBar";
 import BookForm from "./BookForm";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import BookSearch from "./BookSearch";
 import Home from "./Home";
 import BooksCollection from "./BooksCollection";
-import "./index.css";
 import FavoriteBooks from "./FavoriteBooks";
+import "./index.css";
 
 
 function App() {
@@ -25,46 +25,66 @@ function App() {
   
   const addToFavorites = (book) => {
     //console.log(book)
-      const updatedBook = {...book, favorite: true};
+    const updatedBooks = books.map(item => {
+      if (item.id === book.id) {
+        return { ...item, favorite: !item.favorite };
+      }
+      return item;
+    });
+  
 
       fetch(`http://localhost:3000/books/${book.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(updatedBook)
+        body: JSON.stringify({ favorite: true})
       })
       .then(response => response.json())
-      .then(updatedBookData => setFavoriteBooks([...favoriteBooks, updatedBookData]))
-  } 
-
-  
+      .then(updatedBookData => {
+        setBooks(updatedBooks)
+        setFavoriteBooks([...favoriteBooks, updatedBookData])     
+    })
+  }
   
 
   return (
     <div>
   <NavBar />
-  <BookSearch titleSearch={ titleSearch } setTitleSearch={ setTitleSearch }/>
+  <BookSearch 
+    titleSearch={ titleSearch } 
+    setTitleSearch={ setTitleSearch }
+  />
   <Switch>
-    <Route exact path="/my-collection" >
+    <Route 
+      exact 
+      path="/my-collection" 
+    >
       <BooksCollection 
         books={ books } 
         titleSearch={ titleSearch } 
         addToFavorites={ addToFavorites } 
       />
     </Route>
-    <Route path="/add-book">
+    <Route 
+      path="/add-book"
+    >
       <BookForm 
         books={ books } 
         setBooks={ setBooks } 
       />
     </Route>
-    <Route path='/favorites'>
+    <Route 
+      path='/favorites'
+    >
       <FavoriteBooks 
         favoriteBooks={ favoriteBooks }
       />
     </Route>
-    <Route exact path="/">
+    <Route 
+      exact 
+      path="/"
+    >
       <Home />
     </Route>
   </Switch>
@@ -74,10 +94,3 @@ function App() {
 
 export default App;
 
-// if (updatedBookData.favorite) {
-//   setFavoriteBooks([...favoriteBooks, updatedBookData]);
-// } else {
-//   const updatedFavoriteBooks = favoriteBooks.filter(b => b.id !== updatedBookData.id);
-//   setFavoriteBooks(updatedFavoriteBooks);
-// }
-// });

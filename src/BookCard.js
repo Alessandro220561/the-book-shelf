@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const BookCard = ({ book, addToFavorites }) => {
-    const [isFavorite, setIsFavorite] = useState(false)
+    const [isFavorite, setIsFavorite] = useState(book.favorite)
 
     // useEffect(() => {
     //     setIsFavorite(book.favorite)
     // }, [book.favorite])
 
     const handleOnClick = () => {
-        setIsFavorite(!isFavorite)
+        setIsFavorite(true)
         addToFavorites(book)
     }
 
@@ -33,15 +33,3 @@ const BookCard = ({ book, addToFavorites }) => {
 export default BookCard;
 
 
-// <li className="book-card">
-// <img src={book.image} alt={book.title}/>
-// <h3>{book.title}</h3>
-// <h4>Author: {book.author}</h4>
-// <p>Publisher: {book.publisher}</p>
-// <p>Price: ${book.price}</p>
-// {isFavorite ?
-// (<button onClick={handleOnClick}>🌟</button>)   
-// :
-// (<button onClick={handleOnClick}>☆</button>)    
-// }
-// </li>
