@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BookCard from "./BookCard";
 
-const BooksCollection = ({ books, titleSearch, addToFavorites }) => {
+const BooksCollection = ({ books, titleSearch, addToFavorites, isFavorite, setIsFavorite }) => {
 
 const booksToList = books.filter(book => {
     if(titleSearch === '') return true
@@ -17,6 +17,8 @@ const booksToList = books.filter(book => {
         price={book.price}
         image={book.image}
         addToFavorites={ addToFavorites }
+        isFavorite={ isFavorite }
+        setIsFavorite={ setIsFavorite }
     />
 ))
 

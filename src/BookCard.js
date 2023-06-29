@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const BookCard = ({ book, addToFavorites }) => {
-    const [isFavorite, setIsFavorite] = useState(false)
+const BookCard = ({ book, addToFavorites, isFavorite, setIsFavorite }) => {
+    
 
-    useEffect(() => {
-        setIsFavorite(book.favorite)
-    }, [book.favorite])
+    // useEffect(() => {
+    //     setIsFavorite(book.favorite)
+    // }, [book.favorite])
 
     const handleOnClick = () => {
         setIsFavorite(!isFavorite)

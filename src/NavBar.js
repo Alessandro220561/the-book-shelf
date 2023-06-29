@@ -25,7 +25,7 @@ const NavBar = () => {
                 Add Your Book
             </NavLink>
             <NavLink
-                to="/favorite"
+                to="/favorites"
                 exact
                 activeClassName="active"
             >
