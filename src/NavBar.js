@@ -1,31 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-//  const linkStyles = {
-//     display: "inline",
-//     padding: "8px",
-//     background: "#dddddd"
-//  }
-
-//  const activeLinkStyles = {
-//      background: "#555",
-//      color: "white"
-//  }
-
-    // const linkStyles = {
-    //     listStyleType: "none",
-    //     display: "inline",
-    //     margin: "0",
-    //     padding: "0",
-    //     overflow: "hidden",
-    //     backgroundColor: "yellow",
-        
-    // }
-
-    // const activeLinkStyles = {
-    //     backgroundColor: "#04AA6D"
-    // }
-
 const NavBar = () => {
     return (
         <nav className="navbar"> 
@@ -36,18 +11,18 @@ const NavBar = () => {
                 Home
             </NavLink>
             <NavLink 
-                to="/store"
+                to="/my-collection"
                 exact
                 activeClassName="active"
             >
-                Book Store
+                My Books
             </NavLink>
             <NavLink
-                to="/sell"
+                to="/add-book"
                 exact
                 activeClassName="active"
             >
-                Sell Your Book
+                Add Your Book
             </NavLink>
             <NavLink
                 to="/favorite"

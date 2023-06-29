@@ -15,7 +15,6 @@ function App() {
   const [favoriteBooks, setFavoriteBooks] = useState([]);
 
   
-  
   useEffect(() => {
     fetch('http://localhost:3000/books')
     .then(response => response.json())
@@ -24,7 +23,9 @@ function App() {
   
   const addToFavorites = (book) => {
       const updatedBook = {...book, favorite: true};
-      setFavoriteBooks([...favoriteBooks, updatedBook])
+
+      //setFavoriteBooks([...favoriteBooks, updatedBook]);
+        
   }
 
   return (
@@ -32,13 +33,13 @@ function App() {
   <NavBar />
   <BookSearch titleSearch={ titleSearch } setTitleSearch={ setTitleSearch }/>
   <Switch>
-    <Route exact path="/store" >
+    <Route exact path="/mycollection" >
       <BooksCollection books={ books } titleSearch={ titleSearch } addToFavorites={ addToFavorites }/>
     </Route>
-    <Route path="/sell">
+    <Route path="/add-book">
       <BookForm books={ books } setBooks={ setBooks } />
     </Route>
-    <Route path='/favorite'>
+    <Route path='/favorites'>
       <FavoriteBooks favoriteBooks={ favoriteBooks }/>
     </Route>
     <Route exact path="/">

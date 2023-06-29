@@ -3,10 +3,12 @@ import React from "react";
 const Home = () => {
     return (
         <div className="home-container">
-            <h1>Welcome to <strong>Book-Finds</strong></h1>
-            <p>Browse through our collection of books</p>
-            <p>Choose your favorite books and list and sell your own books if you choose to!</p>
-            <p>HAPPY READING!</p>
+            <h1>Welcome to My Books</h1>
+            <p>Have you ever wanted to make a list of the books that you're reading?</p>
+            <p>Here's your chance! Add the books that you're currently reading to keep track of your reading goals.</p>
+            <p>If you enjoyed some books more than others, click the star button to save them as one of your favorite books!</p>
+            <p>Everytime you read a new book, use our form to add your book to your list.</p>
+            <p><strong>HAPPY READING!</strong></p>
         </div>
     )
 };
