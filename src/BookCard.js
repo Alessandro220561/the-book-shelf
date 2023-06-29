@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const BookCard = ({ book, addToFavorites, isFavorite, setIsFavorite }) => {
-    
+const BookCard = ({ book, addToFavorites }) => {
+    const [isFavorite, setIsFavorite] = useState(false)
 
     // useEffect(() => {
     //     setIsFavorite(book.favorite)

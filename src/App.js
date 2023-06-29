@@ -13,7 +13,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [titleSearch, setTitleSearch] = useState('');
   const [favoriteBooks, setFavoriteBooks] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false)
+  
   
   useEffect(() => {
     fetch('http://localhost:3000/books')
@@ -22,7 +22,7 @@ function App() {
   }, []);
   
   const addToFavorites = (book) => {
-      const updatedBook = {...book, favorite: !isFavorite};
+      const updatedBook = {...book, favorite: true};
 
       fetch(`http://localhost:3000/books/${book.id}`, {
         method: 'PATCH',
@@ -46,8 +46,6 @@ function App() {
         books={ books } 
         titleSearch={ titleSearch } 
         addToFavorites={ addToFavorites } 
-        isFavorite={ isFavorite } 
-        setIsFavorite={ setIsFavorite }
       />
     </Route>
     <Route path="/add-book">
