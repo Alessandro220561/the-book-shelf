@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-
-
 const BookForm = ({ handleAddBook }) => {
 
     const [newBook, setNewBook] = useState({
@@ -11,8 +9,6 @@ const BookForm = ({ handleAddBook }) => {
         price: 0,
         image: ""
     })
-
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,8 +23,7 @@ const BookForm = ({ handleAddBook }) => {
                 .then(response => response.json())
                     .then(newBookData => {
                         handleAddBook(newBookData)
-                    })
-           
+                    })          
     };
 
     return (
@@ -38,7 +33,6 @@ const BookForm = ({ handleAddBook }) => {
                 <input type="text" placeholder="title" value={newBook.title} onChange={(e) => setNewBook({...newBook, title: e.target.value})}/>
                 <input type="text" placeholder="author" value={newBook.author} onChange={(e) => setNewBook({...newBook, author: e.target.value})}/>                
                 <input type="text" placeholder="publisher" value={newBook.publisher} onChange={(e) => setNewBook({...newBook, publisher: e.target.value})}/>
-                {/* <input type="number" placeholder="price" value={newBook.price} onChange={(e) => setNewBook({...newBook, price: e.target.value})}/> */}
                 <input type="text" placeholder="image" value={newBook.image} onChange={(e) => setNewBook({...newBook, image: e.target.value})}/>
                 <input type="submit" value="Add" />
             </form>
