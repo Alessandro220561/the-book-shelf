@@ -1,7 +1,7 @@
 import React from "react";
 import BookCard from "./BookCard";
 
-const FavoriteBooks = ({ favoriteBooks }) => {
+const FavoriteBooks = ({ favoriteBooks, removeFromFavorites }) => {
     if (!favoriteBooks) {
         return null;
     }
@@ -22,6 +22,7 @@ const FavoriteBooks = ({ favoriteBooks }) => {
         publisher={book.publisher}
         price={book.price}
         image={book.image}
+        removeFromFavorites={ removeFromFavorites }
     />
 ))}
         </ul>
