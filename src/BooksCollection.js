@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import BookCard from "./BookCard";
 
 const BooksCollection = ({ books, titleSearch, addToFavorites, removeFromFavorites  }) => {
@@ -20,12 +20,10 @@ const booksToList = books.filter(book => {
         removeFromFavorites={ removeFromFavorites }
     />
 ))
-
-        
+    
     return (
         <div className="books-list">{booksToList}</div>
     )
-
 };
 
 export default BooksCollection;
