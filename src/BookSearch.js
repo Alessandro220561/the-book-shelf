@@ -1,8 +1,7 @@
 import React from "react";
 
 const BookSearch = ({ titleSearch, setTitleSearch }) => {
-
-
+    
     return (
         <div className="searchbar">
             <input
