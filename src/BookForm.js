@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 
-const BookForm = ({ books, setBooks }) => {
+
+const BookForm = ({ handleAddBook }) => {
 
     const [newBook, setNewBook] = useState({
         title: "",
@@ -12,7 +12,7 @@ const BookForm = ({ books, setBooks }) => {
         image: ""
     })
 
-    const history = useHistory();
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,8 +26,7 @@ const BookForm = ({ books, setBooks }) => {
             })
                 .then(response => response.json())
                     .then(newBookData => {
-                        setBooks([...books, newBookData])
-                        history.push("/my-collection")
+                        handleAddBook(newBookData)
                     })
            
     };

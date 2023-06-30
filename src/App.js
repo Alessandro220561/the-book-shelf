@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch, useHistory } from "react-router-dom";
 import NavBar from "./NavBar";
 import BookForm from "./BookForm";
 import BookSearch from "./BookSearch";
@@ -9,10 +9,13 @@ import FavoriteBooks from "./FavoriteBooks";
 import "./index.css";
 
 
+
 function App() {
   const [books, setBooks] = useState([]);
   const [titleSearch, setTitleSearch] = useState('');
  //const [favoriteBooks, setFavoriteBooks] = useState([]);
+
+  const history = useHistory();
   
   
   useEffect(() => {
@@ -82,6 +85,11 @@ function App() {
   }
 
   const favoriteBooks = books.filter(book => book.favorite)
+
+  const handleAddBook = (newBookData) => {
+    setBooks([...books, newBookData]);
+    history.push("/my-collection");
+  };
   
 
   return (
@@ -109,6 +117,7 @@ function App() {
       <BookForm 
         books={ books } 
         setBooks={ setBooks } 
+        handleAddBook={ handleAddBook }
       />
     </Route>
     <Route 
