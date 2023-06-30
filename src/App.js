@@ -13,42 +13,14 @@ import "./index.css";
 function App() {
   const [books, setBooks] = useState([]);
   const [titleSearch, setTitleSearch] = useState('');
- //const [favoriteBooks, setFavoriteBooks] = useState([]);
 
   const history = useHistory();
-  
   
   useEffect(() => {
     fetch('http://localhost:3000/books')
     .then(response => response.json())
     .then(bookData => setBooks(bookData))
   }, []);
-
-  //console.log(books)
-  
-  // const addToFavorites = (book) => {
-  //   //console.log(book)
-  //   const updatedBooks = books.map(item => {
-  //     if (item.id === book.id) {
-  //       return { ...item, favorite: !item.favorite };
-  //     }
-  //     return item;
-  //   });
-  
-
-  //     fetch(`http://localhost:3000/books/${book.id}`, {
-  //       method: 'PATCH',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({ favorite: true})
-  //     })
-  //     .then(response => response.json())
-  //     .then(updatedBookData => {
-  //       setBooks(updatedBooks)
-  //       setFavoriteBooks([...favoriteBooks, updatedBookData])     
-  //   })
-  // }
 
   const addToFavorites = (book) => {
     if(!book.favorite) {
@@ -90,7 +62,6 @@ function App() {
     setBooks([...books, newBookData]);
     history.push("/my-collection");
   };
-  
 
   return (
     <div>
