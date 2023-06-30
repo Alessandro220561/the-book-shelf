@@ -2,6 +2,7 @@ import React from "react";
 import BookCard from "./BookCard";
 
 const FavoriteBooks = ({ favoriteBooks, removeFromFavorites }) => {
+
     if (!favoriteBooks) {
         return null;
     }
@@ -32,16 +33,3 @@ const FavoriteBooks = ({ favoriteBooks, removeFromFavorites }) => {
   };
 
 export default FavoriteBooks;
-
-// const FavoriteBooks = ({ favoriteBooks }) => {
-//     return (
-//         <div>
-//             <h1>Favorite Books</h1>
-//             <ul>
-//         {favoriteBooks.map((book) => (
-//           <li key={book.id}>{book.title}</li>
-//         ))}
-//       </ul>
-//         </div>
-//     )
-// };
